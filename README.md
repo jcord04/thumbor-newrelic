@@ -9,7 +9,7 @@ Send Thumbor runtime metrics to your NewRelic account.
 
 ```bash
 # master branch
-pip install -e git://github.com/thumbor-community/newrelic.git@master#egg=tc_newrelic
+pip install -e git://github.com/jcord04/thumbor-newrelic.git@master#egg=tc_newrelic
 
 # latest stable
 pip install tc_newrelic
