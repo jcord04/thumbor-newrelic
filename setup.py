@@ -13,6 +13,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         'thumbor',
-        'newrelic-metrics',
+        'tc_newrelic',
     ]
 )
