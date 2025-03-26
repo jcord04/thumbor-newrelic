@@ -6,7 +6,7 @@ setup(
     name='tc_newrelic',
     version="0.0.1",
     description='Thumbor NewRlic extension',
-    author='Jez Cordonniner,
+    author='Jez Cordonniner',
     author_email='',
     zip_safe=False,
     include_package_data=True,
