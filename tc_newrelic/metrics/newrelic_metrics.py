@@ -20,7 +20,7 @@ class Metrics(BaseMetrics):
                 "Api-Key": config.NEW_RELIC_API_KEY,
                 "Content-Type": "application/json"
             })
-            cls._new_relic_url = "https://metric-api.newrelic.com/metric/v1"
+            cls._new_relic_url = config.NEW_RELIC_API_ENDPOINT
 
         return cls._session
 
@@ -32,6 +32,7 @@ class Metrics(BaseMetrics):
             "name": self._prefixed_name(metricname),
             "type": "count",
             "value": value,
+            "interval.ms": 500,
             "timestamp": time.time()
         }]
         self._send_metrics(metric_data)
@@ -63,7 +64,7 @@ class Metrics(BaseMetrics):
             "metrics": metrics
         }]
 
-        response = session.post(self._session._new_relic_url, json=payload)
+        response = session.post(self._new_relic_url, json=payload)
 
         if response.status_code != 202:
             print(f"New Relic API Error: {response.status_code} - {response.text}")
