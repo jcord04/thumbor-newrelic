@@ -28,6 +28,8 @@ class Metrics(BaseMetrics):
         """
         Increments a counter metric in New Relic.
         """
+        print(f"Inc: {self._prefixed_name(metricname)} - {value} - {time.time()}")
+
         metric_data = [{
             "name": self._prefixed_name(metricname),
             "type": "count",
@@ -41,6 +43,7 @@ class Metrics(BaseMetrics):
         """
         Records a timing metric in New Relic.
         """
+        print(f"Timing: {self._prefixed_name(metricname)} - {value} - {time.time()}")
         metric_data = [{
             "name": self._prefixed_name(metricname),
             "type": "gauge",
