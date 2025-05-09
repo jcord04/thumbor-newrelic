@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tc_newrelic"
+version = "1.0.0"
+description = "Thumbor metrics extension that forwards metrics to New Relic"
+readme = "README.md"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+license = {text = "MIT License"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Multimedia :: Graphics :: Presentation"
+]
+keywords = ["thumbor", "metrics", "newrelic"]
+dependencies = [
+    "thumbor>=7.0.0",
+    "requests>=2.25.0"
+]
+requires-python = ">=3.6"
+
+[project.urls]
+Homepage = "https://github.com/your-username/tc_newrelic"
+"Bug Tracker" = "https://github.com/your-username/tc_newrelic/issues"
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+    "mock",
+    "flake8",
+    "coverage"
+]
+
+[tool.setuptools]
+packages = ["tc_newrelic", "tc_newrelic.metrics"]
