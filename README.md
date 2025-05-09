@@ -18,12 +18,28 @@ pip install tc_newrelic
 ## Configuration
 
 ```python
-# thumbor.conf
+# Use New Relic metrics instead of the default
 METRICS = 'tc_newrelic.metrics.newrelic_metrics'
 
-NEW_RELIC_API_KEY = 'username' # New Relic API key
-NEW_RELIC_APP_NAME = 'thumbor' # New Relic application name
+# Required: Your New Relic License Key
+NEWRELIC_LICENSE_KEY = 'your_license_key_here'
 
-# optional with defaults
-NEW_RELIC_NAME_PREFIX = 'thumbor' # New Relic metrics prefix
+# Optional configurations with defaults
+NEWRELIC_METRIC_API_URL = 'https://metric-api.newrelic.com/metric/v1'  # Change for EU or other regions
+NEWRELIC_APP_NAME = 'Thumbor'  # The application name in New Relic
+NEWRELIC_SEND_INTERVAL_SECONDS = 15  # How often to send metrics (in seconds)
+
+```
+## Viewing Metrics in New Relic
+
+You can view the metrics in New Relic using NRQL queries. For example:
+
+```sql
+SELECT count(*) FROM Metric WHERE metricName LIKE 'custom.thumbor.%' FACET metricName SINCE 1 hour ago TIMESERIES
+```
+
+Or create a dashboard with specific metrics:
+
+```sql
+SELECT sum(value) FROM Metric WHERE metricName = 'custom.thumbor.response.status' AND statuscode = '200' SINCE 1 day ago TIMESERIES
 ```
