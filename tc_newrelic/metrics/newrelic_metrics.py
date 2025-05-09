@@ -18,7 +18,7 @@ logger = logging.getLogger('thumbor.metrics.newrelic')
 handler = logging.StreamHandler(sys.stdout)
 handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
 logger.addHandler(handler)
-logger.setLevel(logging.warning)
+logger.setLevel(logging.WARNING)
 
 class Metrics(BaseMetrics):
     """
