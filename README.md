@@ -30,6 +30,19 @@ NEWRELIC_APP_NAME = 'Thumbor'  # The application name in New Relic
 NEWRELIC_SEND_INTERVAL_SECONDS = 15  # How often to send metrics (in seconds)
 
 ```
+## Metrics
+
+This plugin collects the same metrics as the Prometheus plugin for Thumbor and forwards them to New Relic. The metrics are sent with the prefix `custom.thumbor.` to distinguish them in New Relic.
+
+The following metrics are collected:
+
+- `response.status` - HTTP status codes of responses
+- `response.format` - Format of responses
+- `response.bytes` - Size of responses in bytes
+- `response.time` - Response time
+- `original_image.status` - Status of original image fetches
+- `original_image.fetch` - Time to fetch original images
+
 ## Viewing Metrics in New Relic
 
 You can view the metrics in New Relic using NRQL queries. For example:
@@ -43,3 +56,11 @@ Or create a dashboard with specific metrics:
 ```sql
 SELECT sum(value) FROM Metric WHERE metricName = 'custom.thumbor.response.status' AND statuscode = '200' SINCE 1 day ago TIMESERIES
 ```
+
+## Multiple Processes Support
+
+If running Thumbor with multiple processes, you should be able to use this plugin without any additional configuration. The metrics are aggregated in-memory and sent to New Relic periodically.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
