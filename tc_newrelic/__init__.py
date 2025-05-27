@@ -7,7 +7,7 @@ from thumbor.config import Config
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 Config.define('NEWRELIC_LICENSE_KEY', None, 'New Relic API key', 'Metrics')
 Config.define('NEWRELIC_METRIC_API_URL', 'https://metric-api.newrelic.com/metric/v1', 'New Relic API Endpoint', 'Metrics')
